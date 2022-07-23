@@ -76,7 +76,9 @@ public class EstudiantePresencialTest {
         instance.establecerNumeroCreditos(10);
         instance.establecerCostoCredito(1.0);
         instance.calcularMatriculaPresencial();
-
+        Field field = instance.getClass().getDeclaredField("costoCredito");
+        field.setAccessible(true);
+        assertEquals(field.get(instance), 1.0);
     }
 
     @Test
